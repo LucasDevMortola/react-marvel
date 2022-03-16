@@ -15,10 +15,8 @@ export default function CardHero(props) {
           image="../../assets/Marvel_Logo.svg.png"
           alt="green iguana"
         />
-        <img src='../../assets/Marvel_Logo.svg.png'></img>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
