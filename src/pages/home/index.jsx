@@ -11,20 +11,24 @@ export default function Home() {
   const url = "https://api-marvel-back.herokuapp.com/personagens?";
 
   const [lista, setLista] = useState([]);
-
+  const [limit,setLimit] = useState(20)
   useEffect(() => {
     axios
       .get(url, {
         params: {
           page: currentPage - 1,
-          limit: 12,
+          limit: limit,
         },
       })
       .then((res) => {
         setLista(res.data.personagens);
         console.log(lista);
       });
-  }, []);
+  }, [limit]);
+
+  function somaLimit(){
+    setLimit(limit +20)
+  }
   return (
     <Container>
       <Header />
@@ -39,8 +43,10 @@ export default function Home() {
           <Grid item xs={5}>
 
           </Grid>
-        <Grid item xs={6}>
-          <Button color="error" variant="outlined">
+        <Grid item xs={12}>
+          <Button color="error" variant="outlined" onClick={()=>{
+            somaLimit()
+          }}>
             Carregar mais
           </Button>
         </Grid>
